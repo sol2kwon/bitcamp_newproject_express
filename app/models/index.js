@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import UserModel from './User.js'
+import UserModel from './user2.js'
 import TodoModel from './Todo.js'
 mongoose.Promise = global.Promise
 

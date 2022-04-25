@@ -1,6 +1,7 @@
 import express from "express"
 import cors from 'cors'
 import dotenv from 'dotenv'
+import passport from 'passport'
 import UserService from '../services/user.js'
 const mongoUri = process.env.MONGO_URI
 const port = process.env.PORT
@@ -28,6 +29,7 @@ app.post('/login', cors(corsOptions),(req, res) => {
 })
 app.get(
   '/logout',
+  passport.authenticate('jwt', {session: false}),
   function (req, res) {
       UserService().logout(req, res)
       req.logout();
